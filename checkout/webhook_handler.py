@@ -9,7 +9,7 @@ from profiles.models import UserProfile
 
 import json
 import time
-
+import os
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
