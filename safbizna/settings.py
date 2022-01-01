@@ -94,9 +94,9 @@ TEMPLATES = [
                 'crispy_forms.templatetags.crispy_forms_field',
             ]
         },
+
     },
 ]
-
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 AUTHENTICATION_BACKENDS = (
