@@ -15,6 +15,10 @@ from bag.contexts import bag_contents
 import stripe
 import json
 
+from django.utils import timezone
+
+
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -102,10 +106,7 @@ def checkout(request):
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
-        intent = stripe.PaymentIntent.create(
-            amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY,
-        )
+        intent = stripe.PaymentIntent.create(amount=stripe_total,currency=settings.STRIPE_CURRENCY,)
 
         # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
@@ -182,6 +183,5 @@ def checkout_success(request, order_number):
     }
 
     Template.render(context=None, request=None)
-    
-    return render(request, template, context)
-    
+
+   
