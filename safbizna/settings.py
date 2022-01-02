@@ -72,6 +72,8 @@ ROOT_URLCONF = 'safbizna.urls'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-salmon-seahorse-47ctvy5n.ws-eu25.gitpod.io']
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -204,7 +206,10 @@ if 'USE_AWS' in os.environ:
     # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+
+#https
     
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Stripe
 FREE_DELIVERY_THRESHOLD = 50

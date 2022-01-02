@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse 
 from django.views.decorators.http import require_POST
 from django.template.loader import render_to_string
 from django.contrib import messages
@@ -184,3 +184,4 @@ def checkout_success(request, order_number):
     Template.render(context=None, request=None)
     
     return render(request, template, context)
+    
